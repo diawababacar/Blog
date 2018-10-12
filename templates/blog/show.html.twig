@@ -1,0 +1,64 @@
+{% extends  'base.html.twig' %}
+
+{% block    body %}
+    <article>
+        <h2>{{ article.titreArticle }}</h2>
+        <div class="metadata">Ecrit le {{ article.datePubArticle    |   date('d/m/Y') }} à {{ article.datePubArticle    |   date('H:i') }} dans la catégorie {{ article.categorie.TitreCategorie }}.</div>
+        <div class="content">
+            <img src="{{ article.imageArticle }}" alt="">
+            <p>{{ article.contenuArticle    |   raw }}</p>
+            <hr>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium asperiores beatae consequatur
+                deleniti ipsa, laborum, laudantium nam nihil omnis perferendis quaerat qui suscipit tempora velit
+                veniam. Deleniti quod sint sunt?</p>
+            <p>At aut cumque debitis eius eos fugiat fugit mollitia nostrum officia rem? Dolorem iste nulla officiis
+                optio possimus. Amet assumenda dolorem doloremque dolores itaque iure quidem reprehenderit sed sunt
+                voluptate.</p>
+        </div>
+    </article>
+    <div class="container">
+        <a href="{{ path('blog_edit',{'id':article.id}) }}" class="btn btn-primary">Modifier l'article</a>
+    </div>
+
+    <section id="commentaires">
+<h1>{{ article.commentaires |   length }} Commentaires :</h1>
+        {% for commentaire in article.commentaires %}
+        <div class="comment">
+            <div class="row">
+                <div class="col-3">
+                    {{ commentaire.AuteurCommentaire }} (<small>{{ commentaire.DatePubCommentaire | date('d/m/Y') }} à {{ commentaire.DatePubCommentaire | date('H:i') }}</small>)
+
+                </div>
+                <div class="col">
+                    {{ commentaire.ContenuCommentaire   |   raw }}
+
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+        {% if app.user %}
+        {{ form_start(commentaireForm) }}
+        {{ form_row(commentaireForm.AuteurCommentaire ,{
+            'attr':{'placeholder':"Votre Nom"}
+
+        }) }}
+        {{ form_row(commentaireForm.ContenuCommentaire ,{
+            'attr':{'placeholder':"Ecrivez ici votre commentaire"}
+
+        }) }}
+        <button type="submit" class="btn btn-success">Publier votre commentaire</button>
+
+        {{ form_end(commentaireForm) }}
+
+        {% else %}
+
+        <h2>Vous pouvez ajouter un commentaire en vous connectant !!!</h2>
+            <a href="{{ path('security_connexion') }}" class="btn btn-primary">Cliquez ici</a>
+
+
+
+        {% endif %}
+    </section>
+
+{%  endblock %}

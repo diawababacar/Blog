@@ -1,0 +1,31 @@
+Arguments: 
+  /usr/bin/node /usr/share/yarn/bin/yarn.js add bootstrap --dev
+
+PATH: 
+  /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin
+
+Yarn version: 
+  1.9.4
+
+Node version: 
+  10.11.0
+
+Platform: 
+  linux x64
+
+Trace: 
+  Error: https://registry.yarnpkg.com/bootstrap: ETIMEDOUT
+      at Timeout._onTimeout (/usr/share/yarn/lib/cli.js:138128:19)
+      at ontimeout (timers.js:425:11)
+      at tryOnTimeout (timers.js:289:5)
+      at listOnTimeout (timers.js:252:5)
+      at Timer.processTimers (timers.js:212:10)
+
+npm manifest: 
+  No manifest
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

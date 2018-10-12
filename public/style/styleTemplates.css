@@ -1,0 +1,15 @@
+.form{
+    background-color: floralwhite;
+    margin-bottom: 100px;
+    margin-top: 40px;
+    font-family: 'Times New Roman', Times, serif;
+    border: 1px solid blue;
+    margin: 30px;
+}
+.btn1 {
+    margin-left: 250px;
+    margin-bottom: 30px;
+}
+.nav1{
+    float: right;
+}

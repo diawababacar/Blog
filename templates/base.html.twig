@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Info SN !{% endblock %}</title>
+
+        {% block stylesheets %}
+            <!--    <link rel="stylesheet" href="https://bootswatch.com/4/solar/bootstrap.min.css"> -->
+            <link href="{{ asset('bootstrap/css/bootstrap.min.css') }}" type="text/css" rel="stylesheet" />
+            <link href="{{ asset('build/css/app.css') }}" type="text/css" rel="stylesheet" />
+            <link href="{{ asset('jquery/css/jquery-ui.css') }}" type="text/css" rel="stylesheet" />
+
+            <link href="{{ asset('materialize/css/materialize.css') }}" type="text/css" rel="stylesheet" />
+            <link href="{{ asset('style/styleTemplates.css') }}" type="text/css" rel="stylesheet" />
+
+            <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+        {% endblock %}
+    </head>
+    <body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="{{ path('blog') }}">BlogInfo-SN</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse " id="navbarColor01">
+            <ul class="navbar-nav">
+                <li class="nav-item ">
+                    <a class="nav-link" href="{{ path('blog') }}">Articles <span class="sr-only">(current)</span></a>
+                </li>
+
+                <div class="nav1">
+                    {% if   not app.user %}
+                        <li class="nav-item"><a href="{{ path('security_connexion') }}" class="nav-link">Se connecter</a></li>
+                        <li class="nav-item "><a href="{{ path('security_inscription') }}" class="nav-link">S'inscrire</a></li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ path('newArticle') }}">Créer un article</a>
+                        </li>
+                        <li class="nav-item"><a href="{{ path('security_deconnexion') }}" class="nav-link">Deconnexion</a></li>
+                    {% endif %}
+                </div>
+
+            </ul>
+
+        </div>
+    </nav>
+    <div class="container">
+        {% block body %}{% endblock %}
+    </div>
+
+        {% block javascripts %}
+            <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+            <script src="{{ asset('materialize/js/materialize.min.js') }}"></script>
+            <script src="{{ asset('jquery/js/jquery.min.js') }}"></script>
+            <script src="{{ asset('function/connexion.js') }}"></script>
+            <script src="{{ asset('jquery/js/jquery-ui.js') }}"></script>
+            <script src="{{ asset('bootstrap/js/bootstrap.min.js') }}" ></script>
+
+
+        {% endblock %}
+    </body>
+</html>

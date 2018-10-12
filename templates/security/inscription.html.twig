@@ -1,0 +1,46 @@
+{% extends  'base.html.twig' %}
+
+{% block    body %}
+
+    <div class="container form">
+        <h2>Inscription !!!</h2>
+
+
+        {{ form_start(form) }}
+
+        {{ form_row(form.Username,{
+            'label':"Nom d'utilisateur",
+            'attr':  {'placeholder'  :   "Entrer votre nom d'utilisateur..."}
+        })
+        }}
+        {{ form_row(form.Email,{
+            'label':"Adresse Email",
+            'attr':  {'placeholder'  :   "Entrer votre email (exemple@blabla.com)..."}
+        })
+        }}
+        {{ form_row(form.Password,{
+            'label':"Mot de Passe",
+            'attr':  {'placeholder'  :   "Entrer votre mot de passe ..."}
+        })
+        }}
+        {{ form_row(form.ConfirmPassword,{
+            'label':"Nom d'utilisateur",
+            'attr':  {'placeholder'  :   "Confirmer votre mot passe ..."}
+        })
+        }}
+        {{ form_row(form.Sexe,{
+            'label'  :   "Choisir votre sexe"
+        }) }}
+
+        {{ form_row(form.DateNaissance) }}
+
+        {{ form_row(form.NumeroTelephone) }}
+
+        <button type="submit" class="btn btn-success btn1">S'inscrire</button>
+
+        {{ form_end(form) }}
+
+    </div>
+
+
+{% endblock %}
